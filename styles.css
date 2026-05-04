@@ -341,18 +341,27 @@ h1 {
 
 .poster-band {
   display: grid;
-  grid-template-columns: minmax(280px, 0.64fr) minmax(0, 1fr);
+  grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(26px, 5vw, 62px);
   align-items: center;
   padding: 0 0 clamp(72px, 11vw, 130px);
 }
 
 .poster-copy {
+  min-width: 0;
   padding: clamp(24px, 4vw, 38px);
   border: 5px solid var(--black);
   border-radius: 10px;
   background: var(--paper);
   box-shadow: 10px 10px 0 var(--red);
+}
+
+.poster-copy h2 {
+  max-width: 100%;
+  font-size: clamp(3rem, 4.9vw, 5.7rem);
+  line-height: 0.92;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 .poster-copy p:not(.label) {
