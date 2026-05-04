@@ -3,146 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>$RUNNER | I Run For Solana</title>
+    <title>$RUNNER | The Solana Marathon Meme</title>
     <meta
       name="description"
-      content="$RUNNER is the Solana endurance meme for everyone still running after rugs, rotations, jeets and dead-chain noise."
+      content="$RUNNER is the Solana marathon meme for everyone still running through the trenches."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@600;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise"></div>
-    <header class="site-header" aria-label="Main navigation">
+    <div class="grain"></div>
+
+    <header class="topbar">
       <a class="brand" href="#top" aria-label="$RUNNER home">
-        <span class="brand-mark"></span>
+        <img src="assets/runner-logo.jpg" alt="" />
         <span>$RUNNER</span>
       </a>
-      <nav>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#miles">Miles</a>
-        <a href="#community">Community</a>
+      <nav aria-label="Main navigation">
+        <a href="#who">Who?</a>
+        <a href="#run">Run</a>
+        <a href="#nomics">Nomics</a>
+        <a href="#socials">Socials</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="$RUNNER hero">
-        <div class="track-lines" aria-hidden="true"></div>
-        <div class="crowd crowd-left" aria-hidden="true"></div>
-        <div class="crowd crowd-right" aria-hidden="true"></div>
-
-        <div class="hero-copy">
-          <p class="kicker">Solana endurance meme</p>
+      <section class="hero">
+        <img class="hero-bg" src="assets/hero-marathon.png" alt="" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Solana marathon meme</p>
           <h1>$RUNNER</h1>
-          <p class="hero-line">
-            Money. Glory. Recognition.
-            <span>Crossed out.</span>
+          <p class="tagline">
+            Not for money. Not for glory. Not for recognition.
+            <span>We run for Solana.</span>
           </p>
-          <p class="hero-thesis">
-            A coin for the runners who stayed in the Solana trenches after rugs,
-            rotations, jeets and every “SOL is dead” post.
-          </p>
-          <div class="hero-actions" aria-label="$RUNNER links">
-            <a class="button primary" href="#manifesto">Read the thesis</a>
-            <button class="button ghost" type="button" data-copy="$RUNNER">
+          <div class="hero-buttons">
+            <a class="btn primary" href="#run">Start running</a>
+            <button class="btn secondary" type="button" data-copy="$RUNNER">
               Copy ticker
             </button>
           </div>
         </div>
+      </section>
 
-        <figure class="hero-logo">
+      <section class="ticker" aria-label="$RUNNER slogans">
+        <div>
+          <span>NO FINISH LINE</span>
+          <span>I RUN FOR SOLANA</span>
+          <span>$RUNNER</span>
+          <span>KEEP RUNNING</span>
+          <span>RUN IT BACK</span>
+          <span>NO FINISH LINE</span>
+          <span>I RUN FOR SOLANA</span>
+          <span>$RUNNER</span>
+        </div>
+      </section>
+
+      <section class="intro" id="who">
+        <div class="intro-copy">
+          <p class="label">Who is $RUNNER?</p>
+          <h2>The runner is the guy who stayed.</h2>
+          <p>
+            After the rugs, rotations, cabal calls, jeets and every “SOL is dead”
+            post, he crossed out the old reasons and kept moving.
+          </p>
+          <p>
+            $RUNNER is the meme for that exact feeling: tired, underpaid,
+            overexposed to trenches, but still here for Solana and the people
+            building the system.
+          </p>
+        </div>
+        <figure class="logo-card">
           <img
             src="assets/runner-logo.jpg"
-            alt="Wojak runner from behind wearing a shirt that says I run for Solana $RUNNER"
+            alt="Wojak runner wearing a shirt that says I run for Solana $RUNNER"
           />
         </figure>
       </section>
 
-      <section class="ticker-strip" aria-label="$RUNNER motto">
-        <span>I RUN FOR SOLANA</span>
-        <span>$RUNNER</span>
-        <span>STILL RUNNING</span>
-        <span>NO FINISH LINE</span>
-        <span>RUN IT BACK</span>
-      </section>
-
-      <section class="manifesto" id="manifesto">
-        <div class="section-label">Manifesto</div>
-        <div class="manifesto-grid">
-          <h2>
-            The runner does not chase clout. The runner carries the chain.
-          </h2>
-          <div class="manifesto-text">
-            <p>
-              $RUNNER is not about pretending the trenches are easy. It is about
-              the people who kept moving when the timeline got loud, liquidity
-              rotated, KOLs flipped and the market tried to shake everyone out.
-            </p>
-            <p>
-              The shirt says the whole thesis: money, glory and recognition are
-              crossed out. What remains is Solana, the system and the community
-              still putting one foot in front of the other.
-            </p>
-          </div>
+      <section class="poster-band" id="run">
+        <div class="poster-copy">
+          <p class="label">The thesis</p>
+          <h2>Money, glory, recognition: crossed out.</h2>
+          <p>
+            The chain is the track. The community is the pack. Every dip is a
+            hill. Every post is another mile.
+          </p>
         </div>
+        <img
+          class="pit-art"
+          src="assets/pit-stop.png"
+          alt="Wojak runner at a marathon pit stop choosing a Solana cup"
+        />
       </section>
 
-      <section class="miles" id="miles" aria-label="$RUNNER miles">
-        <article class="mile">
+      <section class="cards" aria-label="$RUNNER culture">
+        <article>
           <span>01</span>
-          <h3>The Hill</h3>
-          <p>Dips are hills. Runners do not ask why the road goes up.</p>
+          <h3>Buy = lace up</h3>
+          <p>Runners do not enter for applause. They enter because the road is open.</p>
         </article>
-        <article class="mile">
+        <article>
           <span>02</span>
-          <h3>The Pack</h3>
-          <p>Raids are group runs. Every post adds another mile to the chart.</p>
+          <h3>Hold = breathe</h3>
+          <p>Rotations hurt. Hills hurt. The pack keeps pace anyway.</p>
         </article>
-        <article class="mile">
+        <article>
           <span>03</span>
-          <h3>The Chain</h3>
-          <p>The track is Solana: fast, chaotic, ruthless, alive.</p>
+          <h3>Post = miles</h3>
+          <p>Memes are mileage. Raids are group runs. The timeline is the route.</p>
         </article>
       </section>
 
-      <section class="community" id="community">
-        <div class="poster">
-          <p class="poster-top">I used to run for</p>
+      <section class="nomics" id="nomics">
+        <img
+          src="assets/runnernomics.png"
+          alt="Runnernomics poster with supply running, tax 0, LP locked, chain Solana"
+        />
+        <div class="nomics-copy">
+          <p class="label">Runnernomics</p>
+          <h2>Built for the ones still moving.</h2>
           <ul>
-            <li><span>money</span></li>
-            <li><span>glory</span></li>
-            <li><span>recognition</span></li>
+            <li><strong>Supply</strong><span>Running</span></li>
+            <li><strong>Tax</strong><span>0</span></li>
+            <li><strong>LP</strong><span>Locked</span></li>
+            <li><strong>Chain</strong><span>Solana</span></li>
           </ul>
-          <p class="poster-bottom">now i run for solana</p>
         </div>
+      </section>
 
-        <div class="community-copy">
-          <div class="section-label">Community</div>
-          <h2>Jeets walk. Runners run.</h2>
-          <p>
-            Holders are runners. Buying is lacing up. Holding is breathing
-            through the pain. Posting is putting miles on the road.
-          </p>
-          <p>
-            No finish line. No shortcuts. Just the chain, the trenches and
-            everyone still running.
-          </p>
-          <div class="contract-row">
-            <span>CA</span>
-            <strong>coming soon</strong>
-          </div>
+      <section class="socials" id="socials">
+        <p class="label">Where to run</p>
+        <h2>Join the pack.</h2>
+        <div class="social-grid">
+          <a href="#" aria-label="X / Twitter">X</a>
+          <a href="#" aria-label="Telegram">TG</a>
+          <a href="#" aria-label="DexScreener">DEX</a>
+          <a href="#" aria-label="Buy $RUNNER">BUY</a>
         </div>
+        <p class="ca">CA: coming soon</p>
       </section>
     </main>
 
     <footer>
-      <span>$RUNNER</span>
-      <span>I run for Solana.</span>
+      <p>$RUNNER</p>
+      <p>I run for Solana.</p>
     </footer>
 
     <script src="script.js"></script>
