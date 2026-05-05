@@ -1,0 +1,705 @@
+:root {
+  color-scheme: light;
+  --ink: #111923;
+  --blue: #1268d8;
+  --deep-blue: #06499d;
+  --red: #f04438;
+  --cream: #fff8e7;
+  --metal: #e7e2d5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Space Grotesk", Avenir Next, Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #6fc7ff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(37, 158, 255, 0.14), rgba(60, 178, 255, 0.05) 42%, rgba(17, 25, 35, 0.18) 100%),
+    url("./assets/field.jpeg") center / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 14%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 8%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 48%);
+  pointer-events: none;
+}
+
+.topbar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0 0;
+}
+
+.brand,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 2px 14px rgba(0, 41, 80, 0.42);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  min-width: 68px;
+  height: 38px;
+  padding: 0 12px;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  backdrop-filter: blur(14px);
+}
+
+.button {
+  min-height: 42px;
+  padding: 0 17px;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 900;
+  color: #ffffff;
+  background: rgba(8, 51, 104, 0.26);
+  box-shadow: 0 12px 28px rgba(0, 57, 111, 0.18);
+  backdrop-filter: blur(14px);
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  font-family: "Space Grotesk", Avenir Next, sans-serif;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: rgba(8, 51, 104, 0.38);
+  box-shadow: 0 16px 34px rgba(0, 57, 111, 0.24);
+}
+
+.button-twitter {
+  background: rgba(15, 105, 220, 0.7);
+}
+
+.button-contract.is-copied {
+  background: rgba(31, 137, 73, 0.76);
+}
+
+.hero-stage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: clamp(10px, 3vw, 44px);
+  width: min(1180px, calc(100% - 32px));
+  min-height: calc(100vh - 92px);
+  margin: 0 auto;
+  padding: 16px 0 130px;
+}
+
+.copy {
+  max-width: 520px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 38, 76, 0.36);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(3.4rem, 8vw, 8.4rem);
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.tagline {
+  width: min(100%, 480px);
+  margin: 22px 0 0;
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.rocket-wrap {
+  position: relative;
+  width: min(640px, 92vw);
+  aspect-ratio: 1 / 1.14;
+  margin-inline: auto;
+  animation: rocketFloat 4.6s ease-in-out infinite;
+}
+
+.rocket-asset {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: min(620px, 112%);
+  height: auto;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 34px 34px rgba(0, 44, 91, 0.28));
+  pointer-events: none;
+  user-select: none;
+}
+
+.moon {
+  position: absolute;
+  top: 1%;
+  right: 4%;
+  width: 104px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 34%, rgba(199, 208, 222, 0.95) 0 8%, transparent 9%),
+    radial-gradient(circle at 70% 58%, rgba(186, 199, 216, 0.85) 0 10%, transparent 11%),
+    radial-gradient(circle at 53% 72%, rgba(205, 213, 224, 0.75) 0 6%, transparent 7%),
+    #f7fbff;
+  box-shadow: 0 0 44px rgba(255, 255, 255, 0.9);
+  transform: rotate(24deg);
+}
+
+.rocket {
+  position: absolute;
+  left: 17%;
+  top: 5%;
+  width: 240px;
+  height: 620px;
+}
+
+.rocket-nose {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 188px;
+  height: 158px;
+  transform: translateX(-50%);
+  border-radius: 96px 96px 18px 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.64), transparent 38%),
+    linear-gradient(135deg, #fffaf0, #d9d4ca);
+  clip-path: polygon(50% 0, 96% 100%, 4% 100%);
+  border: 5px solid rgba(13, 34, 56, 0.18);
+}
+
+.rocket-body {
+  position: absolute;
+  left: 50%;
+  top: 126px;
+  width: 210px;
+  height: 382px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border: 5px solid rgba(13, 34, 56, 0.24);
+  border-radius: 94px 94px 42px 42px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 38%),
+    repeating-linear-gradient(90deg, rgba(17, 25, 35, 0.08) 0 1px, transparent 1px 34px),
+    linear-gradient(160deg, #fff9ea, #d7d0c3 72%);
+  box-shadow:
+    inset -20px 0 42px rgba(29, 35, 42, 0.16),
+    0 32px 58px rgba(22, 53, 94, 0.28);
+}
+
+.rocket-label {
+  position: absolute;
+  right: 35px;
+  top: 42px;
+  z-index: 2;
+  color: #1664bf;
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: 2.18rem;
+  font-weight: 700;
+  transform: rotate(90deg);
+}
+
+.stripe {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  background: linear-gradient(90deg, #db2f25, #ff584d);
+}
+
+.stripe-top {
+  top: 104px;
+}
+
+.stripe-bottom {
+  bottom: 58px;
+}
+
+.porthole {
+  position: absolute;
+  left: 50%;
+  top: 142px;
+  z-index: 3;
+  width: 138px;
+  height: 138px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border: 11px solid #c84232;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #2e8fde, #09284c 76%);
+  box-shadow:
+    inset 0 0 0 6px rgba(255, 255, 255, 0.26),
+    inset -16px -20px 25px rgba(1, 18, 40, 0.36),
+    0 8px 16px rgba(18, 29, 43, 0.22);
+}
+
+.glass-shine {
+  position: absolute;
+  inset: 11px auto auto 15px;
+  z-index: 8;
+  width: 48px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  transform: rotate(-31deg);
+}
+
+.dog {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  width: 116px;
+  height: 116px;
+  transform: translateX(-50%) rotate(24deg);
+}
+
+.face {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  width: 96px;
+  height: 91px;
+  transform: translateX(-50%);
+  border-radius: 48% 48% 46% 46%;
+  background:
+    radial-gradient(circle at 28% 35%, rgba(255, 255, 255, 0.85), transparent 15%),
+    linear-gradient(150deg, #fff9e9, #e9dfcd);
+  box-shadow: inset -10px -14px 18px rgba(95, 73, 42, 0.12);
+}
+
+.ear {
+  position: absolute;
+  top: 1px;
+  width: 38px;
+  height: 48px;
+  background: linear-gradient(150deg, #f8edda, #c5ae8b);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.ear-left {
+  left: 8px;
+  transform: rotate(-19deg);
+}
+
+.ear-right {
+  right: 8px;
+  transform: rotate(19deg);
+}
+
+.eye {
+  position: absolute;
+  top: 39px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff 0 9%, #050506 24%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+}
+
+.eye-left {
+  left: 24px;
+}
+
+.eye-right {
+  right: 24px;
+}
+
+.snout {
+  position: absolute;
+  left: 50%;
+  top: 58px;
+  width: 42px;
+  height: 28px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(238, 220, 194, 0.7);
+}
+
+.nose {
+  position: absolute;
+  left: 50%;
+  top: 3px;
+  width: 19px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 48% 48% 56% 56%;
+  background: #0b0b0c;
+}
+
+.mouth {
+  position: absolute;
+  left: 50%;
+  top: 17px;
+  width: 22px;
+  height: 11px;
+  transform: translateX(-50%);
+  border-bottom: 3px solid rgba(23, 17, 14, 0.55);
+  border-radius: 0 0 18px 18px;
+}
+
+.helmet-band {
+  position: absolute;
+  left: 50%;
+  top: 76px;
+  z-index: 6;
+  width: 112px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f6f0e5, #9f9a8f);
+  opacity: 0.72;
+}
+
+.fin {
+  position: absolute;
+  bottom: 83px;
+  width: 76px;
+  height: 142px;
+  background: linear-gradient(160deg, #ff5347, #b91f1c);
+  border: 5px solid rgba(13, 34, 56, 0.22);
+}
+
+.fin-left {
+  left: -12px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  border-radius: 16px 0 20px 28px;
+}
+
+.fin-right {
+  right: -12px;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  border-radius: 0 16px 28px 20px;
+}
+
+.thruster {
+  position: absolute;
+  left: 50%;
+  bottom: 62px;
+  width: 100px;
+  height: 42px;
+  transform: translateX(-50%);
+  border-radius: 0 0 28px 28px;
+  background: linear-gradient(180deg, #444c57, #111923);
+  border: 5px solid rgba(13, 34, 56, 0.26);
+}
+
+.flame {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 118px;
+  height: 106px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 18px 26px rgba(255, 126, 23, 0.48));
+}
+
+.flame span {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  width: 70px;
+  height: 106px;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 52% 52%;
+  background: linear-gradient(180deg, #fff8a6, #ffb01f 48%, rgba(255, 56, 38, 0.05));
+  clip-path: polygon(50% 0, 94% 36%, 66% 100%, 34% 100%, 6% 36%);
+  animation: flamePulse 180ms ease-in-out infinite alternate;
+}
+
+.flame span:nth-child(2) {
+  width: 106px;
+  height: 92px;
+  background: linear-gradient(180deg, rgba(255, 218, 74, 0.88), rgba(255, 92, 40, 0.4));
+  animation-delay: 80ms;
+}
+
+.flame span:nth-child(3) {
+  width: 46px;
+  height: 74px;
+  background: linear-gradient(180deg, #ffffff, #ffe66c 70%);
+  animation-delay: 120ms;
+}
+
+.sky-speed {
+  position: absolute;
+  z-index: 1;
+  width: 44vw;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
+  opacity: 0.8;
+  transform: rotate(-19deg);
+  animation: speedLine 3.2s linear infinite;
+}
+
+.speed-one {
+  top: 23%;
+  left: -22vw;
+}
+
+.speed-two {
+  top: 39%;
+  left: -32vw;
+  width: 34vw;
+  animation-delay: 1.1s;
+}
+
+.speed-three {
+  top: 57%;
+  left: -26vw;
+  width: 52vw;
+  animation-delay: 2s;
+}
+
+.manifest {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 22px;
+  width: min(920px, calc(100% - 32px));
+  transform: translateX(-50%);
+}
+
+.manifest-card {
+  display: grid;
+  grid-template-columns: 0.26fr 0.62fr 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 70px rgba(9, 50, 83, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.ticker {
+  margin: 0;
+  color: var(--blue);
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-weight: 700;
+}
+
+.manifest h2 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.25rem);
+  line-height: 0.94;
+}
+
+.manifest p:not(.ticker) {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.terminal-line {
+  display: grid;
+  gap: 1px;
+  min-width: 112px;
+  padding: 11px 14px;
+  border-radius: 18px;
+  color: #f2fbff;
+  background: #111923;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.terminal-line span {
+  color: #75d1ff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.terminal-line strong {
+  font-family: "Bricolage Grotesque", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+@keyframes rocketFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+@keyframes flamePulse {
+  from {
+    transform: translateX(-50%) scaleY(0.92) scaleX(1.04);
+  }
+  to {
+    transform: translateX(-50%) scaleY(1.08) scaleX(0.94);
+  }
+}
+
+@keyframes speedLine {
+  from {
+    transform: translateX(0) rotate(-19deg);
+  }
+  to {
+    transform: translateX(165vw) rotate(-19deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .brand span:last-child {
+    display: none;
+  }
+
+  .hero-stage {
+    grid-template-columns: 1fr;
+    align-content: start;
+    min-height: auto;
+    padding: 18px 0 260px;
+  }
+
+  .copy {
+    order: -1;
+    max-width: 620px;
+    text-align: left;
+  }
+
+  .rocket-wrap {
+    width: min(500px, 96vw);
+    margin-top: -10px;
+  }
+
+  .manifest-card {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    border-radius: 20px;
+  }
+
+  .manifest p:not(.ticker) {
+    font-size: 0.92rem;
+  }
+
+  .terminal-line {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    width: min(100% - 22px, 1160px);
+    gap: 10px;
+  }
+
+  .actions {
+    gap: 7px;
+  }
+
+  .button {
+    min-height: 38px;
+    padding: 0 11px;
+    font-size: 0.78rem;
+  }
+
+  .brand-mark {
+    min-width: 62px;
+    height: 38px;
+  }
+
+  .hero-stage {
+    width: min(100% - 22px, 1180px);
+    padding-bottom: 290px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+  }
+
+  .tagline {
+    margin-top: 14px;
+    font-size: 1.08rem;
+  }
+
+  .rocket-wrap {
+    width: 410px;
+    max-width: 112vw;
+    margin-left: -20px;
+  }
+
+  .moon {
+    width: 76px;
+    right: 12%;
+  }
+
+  .manifest {
+    bottom: 12px;
+    width: min(100% - 22px, 920px);
+  }
+}
