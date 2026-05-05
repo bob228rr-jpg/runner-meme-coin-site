@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$BIOS - Bro I'm On Solana</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell" aria-live="polite">
+      <section class="scene scene-boot is-active" data-scene="boot">
+        <div class="windows-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <h1>Windows</h1>
+        <div class="loader" aria-label="Windows is loading">
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+        <p class="boot-status" data-boot-status>Starting Windows...</p>
+      </section>
+
+      <section class="scene scene-error" data-scene="error">
+        <div class="error-window" role="alert">
+          <header>
+            <span>System Error</span>
+            <button type="button" aria-label="Close">x</button>
+          </header>
+          <div class="error-body">
+            <div class="error-icon">!</div>
+            <div>
+              <h2>Windows has encountered a critical problem.</h2>
+              <p>The operating system could not continue. BIOS recovery mode will start automatically.</p>
+            </div>
+          </div>
+          <footer>
+            <button type="button">OK</button>
+          </footer>
+        </div>
+        <div class="scanline-crash" aria-hidden="true"></div>
+      </section>
+
+      <section class="scene scene-bios" data-scene="bios">
+        <div class="bios-screen">
+          <div class="bios-copy" data-bios-copy>
+            <p data-text="American Megatrends BIOS Version 2.15.1236"></p>
+            <p data-text="Copyright (C) 2026 BIOS Solana Corp."></p>
+            <p data-text="BIOS Date: 05/05/26 23:59:59"></p>
+            <p data-text="CPU: Intel(R) Core(TM) Meme Processor 420.69GHz"></p>
+            <p data-text="Memory Test: 65536K OK"></p>
+            <p data-text="Initializing USB Controllers .. Done."></p>
+            <p data-text="Auto-Detecting SATA Port 1 .. WINDOWS_NOT_FOUND"></p>
+            <p data-text="Auto-Detecting SATA Port 2 .. SOLANA_CHAIN"></p>
+            <p data-text="Boot Failure: System disk has left the chat."></p>
+            <p data-text="Loading BIOS recovery module from /dev/sol ... OK"></p>
+            <p data-text="BRO I'M ON SOLANA"></p>
+          </div>
+
+          <div class="bios-card" data-bios-card>
+            <img src="assets/bios-solana.png" alt="BRO I’m On Solana $BIOS" />
+            <div class="token-line">
+              <strong>BRO I’m On Solana</strong>
+              <span>$BIOS</span>
+            </div>
+            <a href="https://x.com/BIOS_solana_" target="_blank" rel="noreferrer">x.com/BIOS_solana_</a>
+          </div>
+
+          <footer class="bios-footer" data-bios-footer>
+            <span>Press F1 to continue</span>
+            <span>Press DEL to enter setup</span>
+            <span>Booting $BIOS...</span>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
