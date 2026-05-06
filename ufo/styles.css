@@ -1,0 +1,165 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Black",
+    system-ui,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #050b12;
+}
+
+.page {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  isolation: isolate;
+}
+
+.background {
+  position: absolute;
+  inset: -22px;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(77, 255, 75, 0.16), transparent 28%),
+    linear-gradient(rgba(4, 9, 13, 0.2), rgba(4, 9, 13, 0.48)),
+    url("./assets/ufo-background.png") center / cover no-repeat;
+  filter: blur(9px) saturate(1.1) contrast(0.9);
+  transform: scale(1.04);
+}
+
+.page::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 100% 4px,
+    radial-gradient(circle at center, transparent 28%, rgba(0, 0, 0, 0.62) 100%);
+  mix-blend-mode: screen;
+  opacity: 0.32;
+}
+
+.page::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 50% 48%, rgba(124, 255, 84, 0.1), transparent 34%);
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.content {
+  display: grid;
+  width: min(92vw, 980px);
+  justify-items: center;
+  padding: 32px 18px;
+  text-align: center;
+}
+
+.ticker {
+  margin: 0;
+  color: #fff75d;
+  font-size: clamp(82px, 18vw, 224px);
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-shadow:
+    0 8px 0 #111,
+    0 0 26px rgba(86, 255, 57, 0.85),
+    0 0 56px rgba(33, 205, 255, 0.6);
+  -webkit-text-stroke: 4px #111;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 18px 0 34px;
+  color: #f7fff0;
+  font-size: clamp(28px, 6vw, 82px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-shadow:
+    0 5px 0 #101010,
+    0 0 24px rgba(71, 255, 51, 0.7);
+  -webkit-text-stroke: 2px rgba(8, 12, 8, 0.78);
+}
+
+.x-button {
+  display: inline-grid;
+  width: clamp(84px, 15vw, 134px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 4px solid #050505;
+  border-radius: 24px;
+  color: #050505;
+  background: linear-gradient(145deg, #ffffff 0%, #cfcfcf 44%, #6c6c6c 100%);
+  box-shadow:
+    0 11px 0 #090909,
+    0 20px 28px rgba(0, 0, 0, 0.42),
+    inset 0 7px 7px rgba(255, 255, 255, 0.8),
+    inset 0 -10px 10px rgba(0, 0, 0, 0.28);
+  font-family: Arial, system-ui, sans-serif;
+  font-size: clamp(38px, 7vw, 64px);
+  font-weight: 950;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.x-button:hover {
+  transform: translateY(4px);
+  box-shadow:
+    0 7px 0 #090909,
+    0 14px 22px rgba(0, 0, 0, 0.4),
+    inset 0 7px 7px rgba(255, 255, 255, 0.8),
+    inset 0 -10px 10px rgba(0, 0, 0, 0.28);
+}
+
+.x-button:active {
+  transform: translateY(9px);
+  box-shadow:
+    0 2px 0 #090909,
+    0 8px 14px rgba(0, 0, 0, 0.36),
+    inset 0 7px 7px rgba(255, 255, 255, 0.8),
+    inset 0 -10px 10px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 620px) {
+  .background {
+    filter: blur(7px) saturate(1.08) contrast(0.92);
+  }
+
+  .ticker {
+    -webkit-text-stroke: 3px #111;
+  }
+
+  h1 {
+    margin-bottom: 28px;
+    -webkit-text-stroke: 1px rgba(8, 12, 8, 0.8);
+  }
+}
