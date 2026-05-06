@@ -108,10 +108,16 @@ nav a:hover {
   color: var(--acid);
 }
 
+.top-actions {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
 .icon-button,
 footer button,
 .phrases button {
-  justify-self: end;
   border: 1px solid var(--line);
   background: rgba(125, 255, 87, 0.11);
   color: var(--ink);
@@ -119,6 +125,14 @@ footer button,
   padding: 0.72rem 0.9rem;
   font-weight: 900;
   cursor: pointer;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  color: var(--acid);
 }
 
 .icon-button:hover,
@@ -239,6 +253,11 @@ h3 {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.08);
   color: var(--ink);
+}
+
+.social-action {
+  border-color: rgba(125, 255, 87, 0.48);
+  background: rgba(125, 255, 87, 0.12);
 }
 
 .ticker-strip {
@@ -440,6 +459,10 @@ footer p {
   .icon-button {
     padding: 0.65rem 0.7rem;
     font-size: 0.78rem;
+  }
+
+  .social-button {
+    min-width: 2.55rem;
   }
 
   .hero {
