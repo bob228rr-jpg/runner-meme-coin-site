@@ -116,7 +116,6 @@ nav a:hover {
 }
 
 .icon-button,
-footer button,
 .phrases button {
   border: 1px solid var(--line);
   background: rgba(125, 255, 87, 0.11);
@@ -136,7 +135,6 @@ footer button,
 }
 
 .icon-button:hover,
-footer button:hover,
 .phrases button:hover {
   border-color: rgba(125, 255, 87, 0.72);
   color: var(--acid);
@@ -404,23 +402,6 @@ h3 {
   text-align: left;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  width: min(1180px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2rem 0 3rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-footer p {
-  margin: 0;
-}
-
 .toast {
   position: fixed;
   right: 1rem;
@@ -486,8 +467,7 @@ footer p {
   .section-grid,
   .poster-band,
   .section-heading,
-  .meme-wall,
-  footer {
+  .meme-wall {
     grid-template-columns: 1fr;
   }
 
@@ -502,13 +482,6 @@ footer p {
     min-height: 10.5rem;
   }
 
-  footer {
-    display: grid;
-  }
-
-  footer button {
-    justify-self: start;
-  }
 }
 
 @media (max-width: 520px) {
