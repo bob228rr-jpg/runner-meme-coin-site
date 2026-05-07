@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { ArrowUpDown, ExternalLink, Search, ShieldAlert, ShoppingBag } from "lucide-react";
+import { ExternalLink, Search, ShieldAlert, ShoppingBag } from "lucide-react";
 import { masks } from "./masks";
 import "./styles.css";
 
@@ -27,6 +27,8 @@ function App() {
       return masks.findIndex((mask) => mask.id === a.id) - masks.findIndex((mask) => mask.id === b.id);
     });
   }, [category, query, sort]);
+
+  const featuredMask = masks[0];
 
   return (
     <>
@@ -72,20 +74,20 @@ function App() {
           </div>
           <div className="deal-panel" aria-label="Featured marketplace stats">
             <div className="deal-header">
-              <span>Today&apos;s featured lot</span>
-              <strong>Hot</strong>
+              <span>Today&apos;s hottest lot</span>
+              <strong>Peak heat</strong>
             </div>
-            <img src="/masks/gigachad-mask.jpg" alt="Gigachad Mask product preview" />
+            <img src={featuredMask.image} alt={`${featuredMask.name} product preview`} />
             <div className="deal-row">
               <span>Current ask</span>
-              <strong>69.00 $MASK</strong>
+              <strong>{featuredMask.priceLabel}</strong>
             </div>
-            <p>Meme coin. Not medical advice. Not protective equipment.</p>
+            <p>{featuredMask.caption}</p>
           </div>
         </section>
 
         <section className="market-strip" aria-label="Marketplace stats">
-          <span>18 listings</span>
+          <span>{masks.length} listings</span>
           <span>Same-day panic shipping</span>
           <span>Dexscreener checkout placeholder</span>
           <span>100% parody inventory</span>

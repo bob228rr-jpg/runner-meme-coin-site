@@ -2,6 +2,17 @@ export const BUY_URL = "https://dexscreener.com/";
 
 export const masks = [
   {
+    id: "pepe",
+    name: "Pepe Mask",
+    price: 1337.0,
+    priceLabel: "1,337.00 $MASK",
+    caption: "The hottest listing on the wall. Rare green panic alpha.",
+    image: "/masks/pepe-mask.jpg",
+    category: "Meme",
+    rarity: "Mythic",
+    buyUrl: BUY_URL,
+  },
+  {
     id: "gigachad",
     name: "Gigachad Mask",
     price: 69.0,
