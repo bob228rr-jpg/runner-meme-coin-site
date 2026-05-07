@@ -39,7 +39,7 @@ export const masks = [
     name: "Alon Mask",
     price: 42.0,
     priceLabel: "42.00 $MASK",
-    caption: "The Mars-grade panic mask for impossible announcements.",
+    caption: "pumpfun energy",
     image: "/masks/alon-mask.jpg",
     category: "Character",
     rarity: "Rare",
