@@ -1,0 +1,25 @@
+<svg width="960" height="960" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Trollface in a red campaign cap</title>
+  <desc id="desc">A quiet monochrome trollface-inspired mascot wearing a red cap and suit.</desc>
+  <rect width="960" height="960" rx="120" fill="#f7fafc"/>
+  <circle cx="480" cy="493" r="356" fill="#eaf1f5"/>
+  <path d="M214 410c15-86 74-164 160-204 102-47 231-33 323 33 85 61 126 151 119 238-10 125-112 236-252 266-141 31-291-31-347-139-31-59-35-128-3-194Z" fill="#fff" stroke="#111" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M246 398c62 22 134 34 213 32 117-3 218-36 282-84 29 35 45 78 44 124-3 112-120 203-262 203-157 0-278-97-277-275Z" fill="#fff"/>
+  <path d="M250 492c47 91 143 142 286 151 94 6 178-11 239-51-44 94-143 156-261 164-139 9-259-51-304-151-16-35-19-82 40-113Z" fill="#111"/>
+  <path d="M288 510c40 56 119 92 237 99 79 4 148-8 203-33" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <path d="M345 579h84M484 609h77M613 596h62M299 536h50" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M329 406c35-39 92-31 128-6 17 12 5 39-16 32-50-17-82-14-112 14-23 22-22-17 0-40Z" fill="#111"/>
+  <path d="M591 399c36-28 90-18 117 16 19 23 6 52-15 36-32-24-66-27-103-9-25 13-21-27 1-43Z" fill="#111"/>
+  <path d="M425 516c38 21 87 26 135 13" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+  <path d="M494 470c-20 20-26 42-14 66" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+  <path d="M252 475c23-38 56-57 98-58M686 452c40-17 76-9 107 24M314 676c102 88 263 103 394 37" stroke="#9aa4aa" stroke-width="11" stroke-linecap="round"/>
+  <path d="M209 353c20-122 135-224 271-237 167-15 311 77 345 214-87-30-192-43-311-36-115 7-219 27-305 59Z" fill="#dc1f1f" stroke="#111" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M254 336c88-43 198-67 324-70 105-3 189 10 254 40 27 12 48 38 50 68l3 48c-95-38-219-50-371-36-109 10-201 29-276 58l16-108Z" fill="#e63b32" stroke="#111" stroke-width="20" stroke-linejoin="round"/>
+  <path d="M255 336c87-22 183-34 288-35 107-1 204 11 290 35" stroke="#8f1010" stroke-width="13" stroke-linecap="round"/>
+  <path d="M351 153c83-30 204-31 287-1" stroke="#f06b62" stroke-width="18" stroke-linecap="round" opacity=".48"/>
+  <text x="480" y="220" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="50" font-weight="900" fill="#fff" letter-spacing="1">MAKE TROLLFACE</text>
+  <text x="480" y="282" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="54" font-weight="900" fill="#fff" letter-spacing="1">GREAT AGAIN</text>
+  <path d="M337 758h285l43 126H289l48-126Z" fill="#151719" stroke="#111" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M421 756h116v126H421V756Z" fill="#fff"/>
+  <path d="M478 772l54 110H423l55-110Z" fill="#d91f1f"/>
+</svg>
