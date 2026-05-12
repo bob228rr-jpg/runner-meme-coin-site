@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$MICROTROLL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Caveat', cursive;
+            background: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            border-bottom: 3px solid #000;
+            z-index: 1000;
+        }
+
+        .ticker {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 3px solid #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Permanent Marker', cursive;
+            transform: rotate(-1deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+            transform: rotate(1deg);
+        }
+
+        .btn-icon {
+            padding: 10px 12px;
+        }
+
+        .btn-icon img {
+            width: 28px;
+            height: 28px;
+            display: block;
+            filter: invert(1);
+        }
+
+        .btn-icon:hover img {
+            filter: invert(0);
+        }
+
+        .contract-btn {
+            padding: 12px 22px;
+            border: 3px solid #000;
+            background: #f5f5f5;
+            font-size: 1.1rem;
+            font-family: 'Caveat', cursive;
+            font-weight: bold;
+            transform: rotate(1deg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contract-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .contract-btn:active {
+            transform: rotate(1deg) scale(0.95);
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: #000;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px 20px 100px 20px;
+        }
+
+        /* Logo Block - Big Hero Section */
+        .logo-block {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+            background: #fff;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .troll-logo {
+            width: 40px;
+            height: auto;
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: pixelated;
+        }
+
+        @keyframes subtle-float {
+            0%, 100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        /* Chart Section */
+        .chart-section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            transform: rotate(-1deg);
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 600px;
+            border: 3px dashed #000;
+            border-radius: 15px;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        /* Video Section */
+        .video-section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-container {
+            border: 3px dashed #000;
+            border-radius: 15px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .video-container video {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-ticker {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Permanent Marker', cursive;
+            transform: rotate(-1deg);
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .chart-container {
+                height: 500px;
+            }
+
+            .logo-block {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .ticker {
+                font-size: 1.5rem;
+            }
+
+            .top-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .btn {
+                padding: 10px 22px;
+                font-size: 1rem;
+            }
+
+            .btn-icon {
+                padding: 8px 10px;
+            }
+
+            .btn-icon img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contract-btn {
+                font-size: 0.9rem;
+                padding: 10px 18px;
+            }
+
+            .troll-logo {
+                width: 60px;
+            }
+
+            .main-content {
+                padding: 100px 15px 80px 15px;
+            }
+
+            .chart-container {
+                height: 400px;
+            }
+
+            .logo-block {
+                height: 50vh;
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .chart-section,
+            .video-section {
+                margin-bottom: 30px;
+            }
+
+            .copy-notification {
+                right: 15px;
+                top: 80px;
+                font-size: 0.9rem;
+            }
+
+            .footer-ticker {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chart-container {
+                height: 350px;
+            }
+
+            .logo-block {
+                height: 40vh;
+            }
+
+            .troll-logo {
+                width: 50px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .footer-ticker {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Copy Notification -->
+<div id="copyNotification" class="copy-notification">
+    Copied! ✓
+</div>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="ticker">$MICROTROLL</div>
+    <div class="top-buttons">
+        <a href="https://dexscreener.com/solana/d18pmt1xqgbc6grpezbsidkbvzzeugcadscwetsbxgun" target="_blank" class="btn btn-icon">
+            <img src="images/dex.png" alt="DexScreener">
+        </a>
+        <a href="https://x.com/microtroll_sol" target="_blank" class="btn">X</a>
+        <button class="contract-btn" onclick="copyContract()">CA</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Big Logo Block -->
+    <div class="logo-block">
+        <div class="logo-container">
+            <img src="images/troll-logo.png" alt="MicroTroll" class="troll-logo">
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-section">
+        <div class="section-title">live chart</div>
+        <div class="chart-container">
+            <iframe
+                    id="dexscreener-embed"
+                    src="https://dexscreener.com/solana/d18pmt1xqgbc6grpezbsidkbvzzeugcadscwetsbxgun?embed=1&theme=light&trades=0&info=0"
+                    title="DexScreener Chart">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-section">
+        <div class="section-title">the legacy</div>
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="images/vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-ticker">$MICROTROLL</div>
+</footer>
+
+<script>
+    // Contract address
+    const CONTRACT_ADDRESS = "HkU2cMmgYwskAuWj1Z9LAaGZTRBBZUBKTk3DGoXZpump";
+
+    function showCopyNotification() {
+        const notification = document.getElementById('copyNotification');
+        notification.classList.add('show');
+
+        setTimeout(function() {
+            notification.classList.remove('show');
+        }, 2000);
+    }
+
+    function copyWithFallback(text) {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.setAttribute('readonly', '');
+        tempInput.style.position = 'absolute';
+        tempInput.style.left = '-9999px';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+    }
+
+    async function copyContract() {
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+            } else {
+                copyWithFallback(CONTRACT_ADDRESS);
+            }
+
+            showCopyNotification();
+        } catch (err) {
+            copyWithFallback(CONTRACT_ADDRESS);
+            showCopyNotification();
+        }
+    }
+</script>
+</body>
+</html>
