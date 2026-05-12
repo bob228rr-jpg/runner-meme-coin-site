@@ -130,6 +130,67 @@ h1 {
   height: auto;
 }
 
+.link-board {
+  position: relative;
+  min-height: 40vw;
+  padding: 0;
+  overflow: hidden;
+}
+
+.link-board img {
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.board-copy {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: clamp(28px, 7vw, 110px);
+  width: min(780px, 54vw);
+  transform: translateY(-50%) rotate(-1.2deg);
+}
+
+.board-title {
+  margin: 0 0 clamp(16px, 2vw, 28px);
+  font-size: clamp(42px, 7vw, 104px);
+  line-height: 0.9;
+}
+
+.contract-field {
+  display: inline-block;
+  margin: 0 0 clamp(18px, 3vw, 38px);
+  padding: 8px 20px 12px;
+  border: 5px solid var(--ink);
+  border-radius: 53% 47% 49% 51% / 46% 54% 46% 54%;
+  font-size: clamp(28px, 4vw, 58px);
+  line-height: 1;
+  transform: rotate(1.4deg);
+}
+
+.board-links {
+  display: grid;
+  gap: clamp(8px, 1.3vw, 16px);
+  justify-items: start;
+}
+
+.board-links a {
+  font-size: clamp(26px, 3.8vw, 58px);
+  line-height: 1;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 8px;
+}
+
+.board-links a:nth-child(2) {
+  margin-left: clamp(8px, 2vw, 34px);
+  transform: rotate(1deg);
+}
+
+.board-links a:nth-child(3) {
+  margin-left: clamp(0px, 5vw, 86px);
+  transform: rotate(-1.5deg);
+}
+
 .manifesto {
   min-height: 54vh;
   display: flex;
@@ -261,8 +322,39 @@ h1 {
     padding: 24px 0;
   }
 
+  .link-board {
+    min-height: 640px;
+    padding: 0;
+  }
+
+  .link-board img {
+    width: 220%;
+    min-height: 640px;
+    transform: translateX(-48%);
+  }
+
+  .board-copy {
+    top: 42%;
+    left: 22px;
+    width: calc(100% - 44px);
+  }
+
+  .board-title {
+    font-size: clamp(44px, 15vw, 72px);
+  }
+
+  .contract-field {
+    border-width: 4px;
+    font-size: clamp(28px, 10vw, 46px);
+  }
+
+  .board-links a {
+    font-size: clamp(28px, 10vw, 46px);
+    text-decoration-thickness: 4px;
+  }
+
   .strip img,
-  .wide-face img {
+  .wide-face:not(.link-board) img {
     width: 190%;
     max-width: none;
     transform: translateX(-42%);
