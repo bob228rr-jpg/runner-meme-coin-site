@@ -210,6 +210,64 @@
             margin-top: 30px;
         }
 
+        .contract-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: center;
+            width: min(620px, 100%);
+            margin-top: 18px;
+            padding: 12px;
+            border: 2px solid var(--cyan);
+            border-radius: 6px;
+            background:
+                linear-gradient(90deg, rgba(255, 72, 196, 0.28), rgba(200, 255, 61, 0.18)),
+                rgba(16, 0, 48, 0.88);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.28);
+        }
+
+        .contract-panel span {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--yellow);
+            font-size: 0.72rem;
+            font-weight: 950;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contract-panel p {
+            min-width: 0;
+            margin: 0;
+        }
+
+        .contract-panel code,
+        .contract-address {
+            color: var(--paper);
+            font-family: "Trebuchet MS", "Comic Sans MS", Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0;
+            text-transform: none;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .contract-copy {
+            min-height: 42px;
+            border: 2px solid var(--paper);
+            border-radius: 6px;
+            background: var(--yellow);
+            color: #19001f;
+            padding: 8px 13px;
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 950;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+        }
+
         .button,
         .fanclub-cta {
             display: inline-flex;
@@ -615,6 +673,18 @@
             text-transform: uppercase;
         }
 
+        .card-fields .contract-row {
+            display: grid;
+            grid-template-columns: 92px minmax(0, 1fr);
+            align-items: start;
+        }
+
+        .card-fields .contract-address {
+            text-align: right;
+            font-size: 0.78rem;
+            line-height: 1.25;
+        }
+
         .member-card blockquote {
             margin: 28px 0 0;
             color: var(--yellow);
@@ -710,7 +780,8 @@
             }
 
             .hero-actions,
-            .hero-meta {
+            .hero-meta,
+            .contract-panel {
                 width: 100%;
                 max-width: 100%;
             }
@@ -720,6 +791,10 @@
             }
 
             .hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .contract-panel {
                 grid-template-columns: 1fr;
             }
 
@@ -765,6 +840,10 @@
 
             .card-fields p {
                 flex-direction: column;
+            }
+
+            .card-fields .contract-row {
+                grid-template-columns: 1fr;
             }
 
             .card-fields strong {
@@ -834,6 +913,14 @@
                         <a class="button primary" href="#fanclub">Claim card</a>
                         <a class="button" href="#pilot">Watch pilot</a>
                         <a class="button" href="https://x.com/_PLANETRONIKA_" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+                    </div>
+
+                    <div class="contract-panel" aria-label="Token contract">
+                        <p>
+                            <span>Contract</span>
+                            <code id="contract-address">nEYNnGFHzRVCSW2VxfRL5GvcrQDhVqr33coBb8Rpump</code>
+                        </p>
+                        <button class="contract-copy" type="button" data-copy-contract>Copy</button>
                     </div>
 
                     <div class="hero-meta" aria-label="Fan club stats">
@@ -984,6 +1071,7 @@
                                 <p><span>status</span><strong>ACTIVE</strong></p>
                                 <p><span>joined</span><strong>MAY 2026</strong></p>
                                 <p><span>rank</span><strong>BUTTERFLY ENJOYER</strong></p>
+                                <p class="contract-row"><span>contract</span><strong class="contract-address">nEYNnGFHzRVCSW2VxfRL5GvcrQDhVqr33coBb8Rpump</strong></p>
                             </div>
                         </div>
                         <blockquote>"watched it for the animation"</blockquote>
@@ -1013,6 +1101,8 @@
         const rerollButton = document.querySelector("#reroll-card");
         const walletButton = document.querySelector("#connect-wallet");
         const walletNote = document.querySelector("#wallet-note");
+        const contractAddress = "nEYNnGFHzRVCSW2VxfRL5GvcrQDhVqr33coBb8Rpump";
+        const contractButtons = document.querySelectorAll("[data-copy-contract]");
         const randomMemberNumber = () => String(Math.floor(1000 + Math.random() * 9000));
 
         function setMemberNumber(value, note) {
@@ -1056,6 +1146,23 @@
             } catch {
                 walletNote.textContent = "wallet connection cancelled";
             }
+        });
+
+        contractButtons.forEach((button) => {
+            button.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(contractAddress);
+                    button.textContent = "Copied";
+                    setTimeout(() => {
+                        button.textContent = "Copy";
+                    }, 1400);
+                } catch {
+                    button.textContent = "Copy failed";
+                    setTimeout(() => {
+                        button.textContent = "Copy";
+                    }, 1400);
+                }
+            });
         });
 </script>
 </body>
