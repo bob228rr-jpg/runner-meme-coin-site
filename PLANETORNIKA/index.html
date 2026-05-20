@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$PLANETORNIKA - Butterfly Fan Club</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --ink: #170035;
+            --ink-2: #2a0a5a;
+            --paper: #fff8fd;
+            --muted: rgba(255, 248, 253, 0.86);
+            --cyan: #00dcff;
+            --pink: #ff48c4;
+            --violet: #8b4dff;
+            --yellow: #fff13d;
+            --lime: #b7ff20;
+            --orange: #ff8a1c;
+            --line: rgba(255, 255, 255, 0.28);
+            --cartoon-shadow: 0 18px 0 rgba(17, 0, 39, 0.32);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            max-width: 100vw;
+            overflow-x: hidden;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                radial-gradient(circle at 18% 10%, rgba(255, 72, 196, 0.58), transparent 34%),
+                radial-gradient(circle at 82% 4%, rgba(0, 220, 255, 0.42), transparent 32%),
+                radial-gradient(circle at 65% 86%, rgba(255, 138, 28, 0.34), transparent 34%),
+                var(--ink);
+            background-size: 42px 42px, 42px 42px, auto, auto, auto;
+            color: var(--paper);
+            font-family: "Comic Sans MS", "Trebuchet MS", "Arial Rounded MT Bold", ui-rounded, system-ui, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.06) 0,
+                rgba(255, 255, 255, 0.06) 1px,
+                transparent 1px,
+                transparent 6px
+            );
+            mix-blend-mode: overlay;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        .masthead {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px clamp(16px, 4vw, 48px);
+            border-bottom: 1px solid var(--line);
+            background: rgba(31, 0, 75, 0.82);
+            backdrop-filter: blur(16px);
+        }
+
+        .brand {
+            color: var(--lime);
+            font-size: 0.95rem;
+            font-weight: 950;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0 #001922;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: clamp(12px, 3vw, 30px);
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 850;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            min-height: 100svh;
+            padding: 96px clamp(16px, 4vw, 54px) 54px;
+            display: grid;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            z-index: -1;
+            height: 42%;
+            background: linear-gradient(0deg, rgba(23, 0, 53, 0.98), transparent);
+            pointer-events: none;
+        }
+
+        .hero-layout {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: clamp(28px, 6vw, 76px);
+            align-items: center;
+        }
+
+        .hero-copy {
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .hero-kicker,
+        .section-kicker {
+            margin: 0 0 14px;
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            color: var(--paper);
+            line-height: 0.82;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 0 var(--pink),
+                -4px 0 0 var(--cyan),
+                0 7px 0 rgba(0, 0, 0, 0.26);
+        }
+
+        .hero-token {
+            display: block;
+            font-size: clamp(2.55rem, 4.1vw, 3.9rem);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .hero-title-sub {
+            display: block;
+            margin-top: 16px;
+            color: var(--yellow);
+            font-size: clamp(1.8rem, 4.6vw, 4.6rem);
+            line-height: 0.94;
+            text-shadow:
+                3px 3px 0 var(--pink),
+                0 7px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        .hero-text {
+            max-width: 650px;
+            margin: 28px 0 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            font-weight: 720;
+            line-height: 1.62;
+            overflow-wrap: break-word;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .button,
+        .fanclub-cta {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.14);
+            color: var(--paper);
+            font-size: 0.86rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+            transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+        }
+
+        .button:hover,
+        .fanclub-cta:hover {
+            border-color: var(--cyan);
+            background: rgba(0, 220, 255, 0.26);
+            color: #ffffff;
+        }
+
+        .button.primary,
+        .fanclub-cta.primary {
+            border-color: transparent;
+            background: var(--lime);
+            color: #120018;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.34);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            width: min(620px, 100%);
+            margin-top: 36px;
+            border: 1px solid var(--line);
+            background: var(--line);
+        }
+
+        .hero-meta div {
+            padding: 14px;
+            background: rgba(40, 0, 90, 0.8);
+        }
+
+        .hero-meta span {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--cyan);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero-meta strong {
+            display: block;
+            color: var(--paper);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        .hero-visual {
+            min-width: 0;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            place-items: center;
+            padding: clamp(12px, 3vw, 28px);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 10% 4%;
+            z-index: -1;
+            border: 1px solid rgba(0, 216, 255, 0.46);
+            background:
+                linear-gradient(90deg, rgba(0, 220, 255, 0.22), transparent),
+                linear-gradient(180deg, rgba(255, 241, 61, 0.2), transparent);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            max-width: 620px;
+            max-height: min(78svh, 760px);
+            object-fit: contain;
+            filter: drop-shadow(0 24px 0 rgba(255, 72, 196, 0.24)) drop-shadow(0 34px 48px rgba(0, 0, 0, 0.4));
+        }
+
+        .ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            border-block: 1px solid var(--line);
+            background: #28005d;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            gap: 32px;
+            padding: 13px 0;
+            animation: ticker 26s linear infinite;
+        }
+
+        .ticker span {
+            position: relative;
+            color: var(--lime);
+            font-size: 0.88rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .ticker span::after {
+            content: "/";
+            position: absolute;
+            right: -20px;
+            color: var(--pink);
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .section {
+            padding: clamp(68px, 10vw, 124px) clamp(16px, 4vw, 54px);
+        }
+
+        .section-inner {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin: 0;
+            color: var(--paper);
+            font-size: clamp(2.25rem, 6vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .section-lede {
+            max-width: 820px;
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.7vw, 1.2rem);
+            font-weight: 720;
+            line-height: 1.62;
+        }
+
+        .pilot-section {
+            background:
+                linear-gradient(180deg, rgba(255, 72, 196, 0.28), transparent 34%),
+                var(--ink-2);
+        }
+
+        .pilot-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1fr);
+            gap: clamp(24px, 5vw, 56px);
+            align-items: center;
+            margin-top: 34px;
+        }
+
+        .pilot-copy {
+            min-width: 0;
+        }
+
+        .pilot-copy p {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            font-weight: 720;
+            line-height: 1.65;
+        }
+
+        .pilot-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .video-shell {
+            min-width: 0;
+            border: 1px solid rgba(0, 216, 255, 0.42);
+            background: #000;
+            box-shadow: var(--cartoon-shadow);
+        }
+
+        .dossier-section {
+            background:
+                linear-gradient(90deg, rgba(0, 220, 255, 0.22), transparent 48%),
+                #240052;
+        }
+
+        .dossier-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(320px, 1.14fr);
+            gap: clamp(24px, 5vw, 58px);
+            align-items: center;
+        }
+
+        .stats {
+            display: grid;
+            gap: 1px;
+            margin-top: 28px;
+            border: 1px solid var(--line);
+            background: var(--line);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 130px minmax(0, 1fr);
+            gap: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.055);
+        }
+
+        .stats-row dt {
+            color: var(--cyan);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .stats-row dd {
+            margin: 0;
+            color: var(--paper);
+            font-size: 1.1rem;
+            font-weight: 820;
+            text-transform: lowercase;
+        }
+
+        .dossier-visual img {
+            width: min(560px, 100%);
+            max-height: 680px;
+            margin: 0 auto;
+            object-fit: contain;
+            filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.42));
+        }
+
+        .gallery-section {
+            background:
+                linear-gradient(180deg, rgba(255, 241, 61, 0.2), transparent 32%),
+                #ff48c4;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            align-items: start;
+            gap: 18px;
+            margin-top: 34px;
+        }
+
+        .gallery-item,
+        .post-card,
+        .timeline-image {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .gallery-item {
+            padding: 10px;
+            box-shadow: 0 10px 0 rgba(36, 0, 82, 0.26);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .timeline-section {
+            background: #2a0a5a;
+        }
+
+        .timeline-image {
+            margin-top: 34px;
+            padding: 10px;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .posts-section {
+            background:
+                linear-gradient(120deg, rgba(122, 53, 255, 0.34), transparent 46%),
+                #0a0712;
+        }
+
+        .posts-grid {
+            columns: 2 320px;
+            column-gap: 18px;
+            margin-top: 34px;
+        }
+
+        .post-card {
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 18px;
+            padding: 8px;
+        }
+
+        .post-card img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .fanclub-section {
+            background:
+                radial-gradient(circle at 78% 20%, rgba(200, 255, 61, 0.34), transparent 30%),
+                linear-gradient(180deg, rgba(255, 72, 196, 0.3), transparent 44%),
+                var(--ink-2);
+        }
+
+        .fanclub-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.54fr);
+            gap: clamp(22px, 5vw, 52px);
+            align-items: center;
+            margin-top: 34px;
+        }
+
+        .member-card {
+            border: 1px solid rgba(200, 255, 61, 0.44);
+            border-radius: 6px;
+            background:
+                linear-gradient(135deg, rgba(0, 220, 255, 0.22), transparent 38%),
+                rgba(255, 255, 255, 0.14);
+            padding: clamp(18px, 4vw, 34px);
+            box-shadow: var(--cartoon-shadow);
+        }
+
+        .card-topline {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+            color: var(--lime);
+            font-size: 0.84rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            gap: 22px;
+            align-items: center;
+        }
+
+        .card-body img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .card-fields {
+            display: grid;
+            gap: 1px;
+            border: 1px solid var(--line);
+            background: var(--line);
+        }
+
+        .card-fields p {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            margin: 0;
+            padding: 11px 12px;
+            background: rgba(40, 0, 90, 0.86);
+            color: var(--paper);
+            font-size: 0.92rem;
+            font-weight: 820;
+        }
+
+        .card-fields span {
+            color: var(--cyan);
+            text-transform: lowercase;
+        }
+
+        .card-fields strong {
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        .member-card blockquote {
+            margin: 28px 0 0;
+            color: var(--yellow);
+            font-size: clamp(1.45rem, 4vw, 3rem);
+            font-weight: 950;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .fanclub-actions {
+            display: grid;
+            gap: 14px;
+        }
+
+        .fanclub-copy {
+            color: var(--muted);
+            font-size: 1.12rem;
+            font-weight: 760;
+            line-height: 1.52;
+        }
+
+        .wallet-note {
+            margin: 14px 0 0;
+            color: var(--cyan);
+            font-size: 0.86rem;
+            font-weight: 850;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 24px clamp(16px, 4vw, 54px);
+            border-top: 1px solid var(--line);
+            background: #07040d;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 860px) {
+            .masthead {
+                position: sticky;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 42px;
+                padding-inline: 20px;
+            }
+
+            .hero-layout,
+            .pilot-grid,
+            .dossier-grid,
+            .fanclub-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-layout {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+            }
+
+            .hero-copy,
+            .hero-text {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            .hero-visual {
+                order: -1;
+                padding-top: 0;
+                padding-inline: 0;
+            }
+
+            .hero-visual img {
+                max-width: 100%;
+                max-height: 58svh;
+            }
+
+            .hero-actions,
+            .hero-meta {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .button {
+                min-width: 0;
+            }
+
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row,
+            .card-body {
+                grid-template-columns: 1fr;
+            }
+
+            .card-body img {
+                width: 132px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero h1 {
+                line-height: 0.9;
+            }
+
+            .hero-token {
+                font-size: 1.62rem;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
+            .hero-title-sub {
+                font-size: 1.55rem;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
+            .hero-text {
+                font-size: 0.94rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-fields p {
+                flex-direction: column;
+            }
+
+            .card-fields strong {
+                text-align: left;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-layout,
+            .hero-copy,
+            .hero-text,
+            .hero-visual {
+                max-width: 350px;
+                margin-left: 0;
+                margin-right: auto;
+            }
+
+            .hero-visual img {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .ticker-track {
+                animation: none;
+                flex-wrap: wrap;
+                width: auto;
+                padding-inline: 16px;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <a class="brand" href="#top">$PLANETORNIKA</a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#pilot">Pilot</a>
+            <a href="#butterfly">Butterfly</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#fanclub">Join</a>
+            <a href="https://x.com/PLANETORNIKA" target="_blank" rel="noopener noreferrer">X</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-layout">
+                <div class="hero-copy">
+                    <p class="hero-kicker">ordinary girl / extraordinary chart</p>
+                    <h1><span class="hero-token">$PLANETORNIKA</span><span class="hero-title-sub">Butterfly Fan Club</span></h1>
+                    <p class="hero-text">
+                        An indie animator dropped a Y2K space cartoon on YouTube. 10 days later the internet still has not recovered.
+                        One pilot episode, one basketball game gone wrong, one space explorer turning the whole timeline into fan club territory.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button primary" href="#fanclub">Claim card</a>
+                        <a class="button" href="#pilot">Watch pilot</a>
+                        <a class="button" href="https://x.com/PLANETORNIKA" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+                    </div>
+
+                    <div class="hero-meta" aria-label="Fan club stats">
+                        <div>
+                            <span>Status</span>
+                            <strong>Active</strong>
+                        </div>
+                        <div>
+                            <span>Joined</span>
+                            <strong>May 2026</strong>
+                        </div>
+                        <div>
+                            <span>Motto</span>
+                            <strong>Watched it</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <figure class="hero-visual">
+                    <img src="images/hero.png" alt="Butterfly from PLANETORNIKA">
+                </figure>
+            </div>
+        </section>
+
+        <div class="ticker" aria-label="Fan club ticker">
+            <div class="ticker-track">
+                <span>watched it for the animation</span>
+                <span>$PLANETRONIKA</span>
+                <span>fan club member</span>
+                <span>Y2K coded degen approved</span>
+                <span>ordinary girl extraordinary chart</span>
+                <span>butterfly fan club</span>
+                <span>watched it for the animation</span>
+                <span>$PLANETRONIKA</span>
+                <span>watched it for the animation</span>
+                <span>$PLANETRONIKA</span>
+                <span>fan club member</span>
+                <span>Y2K coded degen approved</span>
+            </div>
+        </div>
+
+        <section class="section pilot-section" id="pilot">
+            <div class="section-inner">
+                <p class="section-kicker">The Pilot</p>
+                <h2 class="section-title">The pilot that started it all</h2>
+
+                <div class="pilot-grid">
+                    <div class="pilot-copy">
+                        <p>
+                            Butterfly is a space explorer in a galaxy full of aliens. The pilot dropped, the discourse detonated,
+                            and everyone suddenly had a very serious opinion about animation.
+                        </p>
+                        <p>
+                            The timeline went feral, fan art flooded X, Reddit lost its mind, animation Twitter entered shambles.
+                            This is not manufactured hype. This is culture.
+                        </p>
+                    </div>
+
+                    <div class="video-shell">
+                        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/4niV7OYZXYE?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section dossier-section" id="butterfly">
+            <div class="section-inner dossier-grid">
+                <div>
+                    <p class="section-kicker">Butterfly</p>
+                    <h2 class="section-title">Space explorer. Timeline hazard.</h2>
+                    <dl class="stats">
+                        <div class="stats-row">
+                            <dt>Name</dt>
+                            <dd>butterfly</dd>
+                        </div>
+                        <div class="stats-row">
+                            <dt>Role</dt>
+                            <dd>space explorer</dd>
+                        </div>
+                        <div class="stats-row">
+                            <dt>Traits</dt>
+                            <dd>energetic / optimistic / reckless / sexy af</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <figure class="dossier-visual">
+                    <img src="images/pose2.jpeg" alt="Butterfly full character art">
+                </figure>
+            </div>
+        </section>
+
+        <section class="section gallery-section">
+            <div class="section-inner">
+                <p class="section-kicker">Fan Art Wall</p>
+                <h2 class="section-title">Butterfly moods</h2>
+                <div class="gallery-grid">
+                    <figure class="gallery-item"><img src="images/pose1.jpeg" alt="Butterfly mood 1"></figure>
+                    <figure class="gallery-item"><img src="images/pose2.jpeg" alt="Butterfly mood 2"></figure>
+                    <figure class="gallery-item"><img src="images/pose3.jpeg" alt="Butterfly mood 3"></figure>
+                    <figure class="gallery-item"><img src="images/pose4.jpeg" alt="Butterfly mood 4"></figure>
+                    <figure class="gallery-item"><img src="images/pose5.jpeg" alt="Butterfly mood 5"></figure>
+                    <figure class="gallery-item"><img src="images/pose6.jpeg" alt="Butterfly mood 6"></figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section timeline-section" id="timeline">
+            <div class="section-inner">
+                <p class="section-kicker">The Timeline</p>
+                <h2 class="section-title">The internet entered orbit</h2>
+                <p class="section-lede">
+                    The memes, screenshots and arguments turned the pilot into a live internet event.
+                </p>
+                <figure class="timeline-image">
+                    <img src="images/room.png" alt="Viral timeline screenshot">
+                </figure>
+            </div>
+        </section>
+
+        <section class="section posts-section">
+            <div class="section-inner">
+                <p class="section-kicker">Posts</p>
+                <h2 class="section-title">Posts in orbit</h2>
+                <div class="posts-grid">
+                    <figure class="post-card"><img src="images/post1.png" alt="Post about Butterfly"></figure>
+                    <figure class="post-card"><img src="images/post2.png" alt="Post about PLANETORNIKA discourse"></figure>
+                    <figure class="post-card"><img src="images/post3.png" alt="Post reacting to Butterfly"></figure>
+                    <figure class="post-card"><img src="images/post4.png" alt="Post with Butterfly fan art"></figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fanclub-section" id="fanclub">
+            <div class="section-inner">
+                <p class="section-kicker">Membership Card</p>
+                <h2 class="section-title">Fan club proof</h2>
+                <div class="fanclub-layout">
+                    <article class="member-card" aria-label="Butterfly Fan Club membership card">
+                        <div class="card-topline">
+                            <span>Butterfly Fan Club</span>
+                            <span>Active</span>
+                        </div>
+                        <div class="card-body">
+                            <img src="images/hero.png" alt="Butterfly member portrait">
+                            <div class="card-fields">
+                                <p><span>member #</span><strong id="member-number">0000</strong></p>
+                                <p><span>status</span><strong>ACTIVE</strong></p>
+                                <p><span>joined</span><strong>MAY 2026</strong></p>
+                                <p><span>rank</span><strong>BUTTERFLY ENJOYER</strong></p>
+                            </div>
+                        </div>
+                        <blockquote>"watched it for the animation"</blockquote>
+                    </article>
+
+                    <aside class="fanclub-actions" aria-label="Membership actions">
+                        <p class="fanclub-copy">
+                            Screenshot your card. Post it. Rep the fan club.
+                        </p>
+                        <button class="fanclub-cta primary" id="reroll-card" type="button">Reroll #</button>
+                        <button class="fanclub-cta" id="connect-wallet" type="button">Connect wallet</button>
+                        <p class="wallet-note" id="wallet-note">random member number ready</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>$PLANETORNIKA Butterfly Fan Club</p>
+        <a href="https://x.com/PLANETORNIKA" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a href="#top">Back to top</a>
+    </footer>
+
+    <script>
+        const memberNumber = document.querySelector("#member-number");
+        const rerollButton = document.querySelector("#reroll-card");
+        const walletButton = document.querySelector("#connect-wallet");
+        const walletNote = document.querySelector("#wallet-note");
+        const randomMemberNumber = () => String(Math.floor(1000 + Math.random() * 9000));
+
+        function setMemberNumber(value, note) {
+            memberNumber.textContent = value;
+            walletNote.textContent = note;
+            localStorage.setItem("butterfly-member-number", value);
+            localStorage.setItem("butterfly-member-note", note);
+        }
+
+        const savedNumber = localStorage.getItem("butterfly-member-number");
+        const savedNote = localStorage.getItem("butterfly-member-note");
+
+        if (savedNumber) {
+            memberNumber.textContent = savedNumber;
+            walletNote.textContent = savedNote || "fan club card restored";
+        } else {
+            setMemberNumber(randomMemberNumber(), "random member number ready");
+        }
+
+        rerollButton.addEventListener("click", () => {
+            setMemberNumber(randomMemberNumber(), "fresh member number minted");
+        });
+
+        walletButton.addEventListener("click", async () => {
+            if (!window.ethereum?.request) {
+                setMemberNumber(randomMemberNumber(), "wallet unavailable, random member number minted");
+                return;
+            }
+
+            try {
+                const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+                const account = accounts?.[0];
+
+                if (!account) {
+                    setMemberNumber(randomMemberNumber(), "wallet returned no account, random member number minted");
+                    return;
+                }
+
+                const digits = parseInt(account.slice(-6), 16) % 10000;
+                setMemberNumber(String(digits).padStart(4, "0"), `wallet connected: ${account.slice(0, 6)}...${account.slice(-4)}`);
+            } catch {
+                walletNote.textContent = "wallet connection cancelled";
+            }
+        });
+</script>
+</body>
+</html>
